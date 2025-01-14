@@ -11,4 +11,7 @@ export type Auth = {
 
 export type App = {
     Home: undefined;
+    Upload: undefined;
+    Document: undefined;
+    Calender: undefined;
 }
