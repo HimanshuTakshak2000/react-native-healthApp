@@ -18,4 +18,10 @@ export default {
     UPLOADACTIVE: require('../assets/images/UploadActive.png'),
     UPLOADINACTIVE: require('../assets/images/UploadInactive.png'),
     VITAMINIMAGE: require('../assets/images/VitaminImage.png'),
+    BACKBUTTONIMAGE: require('../assets/images/backButton.png'),
+    LINKICON: require('../assets/images/linkIcon.png'),
+    LOCATIONICON: require('../assets/images/locationIcon.png'),
+    UPLOADICON: require('../assets/images/uploadIcon.png'),
+    UPLOADIMAGE1: require('../assets/images/uploadImage1.png'),
+    UPLOADIMAGE2: require('../assets/images/uploadImage2.png'),
 };
