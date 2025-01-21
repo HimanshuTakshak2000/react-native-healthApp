@@ -9,7 +9,7 @@ import {
   ScrollView,
   ToastAndroid,
 } from 'react-native';
-import {TextInput, Button, useTheme} from 'react-native-paper';
+import {TextInput, Button} from 'react-native-paper';
 import DocumentPicker from 'react-native-document-picker';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {
@@ -80,33 +80,33 @@ const UploadPrescriptionScreen = () => {
     setUploadMode(null);
   };
 
-  const handleContiue = async()=>{
+  const handleContiue = async () => {
     if (uploadedFiles.length === 0) {
       ToastAndroid.show('Upload File or Link', ToastAndroid.SHORT);
       return;
     }
     const user = await AsyncStorage.getItem('User');
     let userId = '';
-    if(user){
+    if (user) {
       const parsedUser = JSON.parse(user);
       userId = parsedUser._id;
     }
-    
+
     const formData = new FormData();
-    formData.append('userId',userId);
-  
+    formData.append('userId', userId);
+
     uploadedFiles.forEach((file: any) => {
       if (file.type === 'file') {
         formData.append('category_image', {
           uri: file.uri,
-          name: file.name, 
-          type: file.type, 
+          name: file.name,
+          type: file.type,
         });
       } else if (file.type === 'link') {
         formData.append('category_image', file.name);
       }
     });
-  
+
     try {
       const response = await fetch(`${baseUrl}/api/uploads/addFile`, {
         method: 'POST',
@@ -115,19 +115,24 @@ const UploadPrescriptionScreen = () => {
         },
         body: formData,
       });
-  
+
       if (response.ok) {
         await response.json();
         ToastAndroid.show('File Uploaded Sccuessfully!', ToastAndroid.SHORT);
         setUploadedFiles([]); // Clear uploaded files
       } else {
-        ToastAndroid.show('Failed to upload files. Please try again.', ToastAndroid.SHORT);
+        ToastAndroid.show(
+          'Failed to upload files. Please try again.',
+          ToastAndroid.SHORT,
+        );
       }
     } catch (error) {
-      ToastAndroid.show('An error occurred while uploading. Please try again.', ToastAndroid.SHORT);
+      ToastAndroid.show(
+        'An error occurred while uploading. Please try again.',
+        ToastAndroid.SHORT,
+      );
     }
-  
-  }
+  };
 
   return (
     <ScrollView>
@@ -184,7 +189,7 @@ const UploadPrescriptionScreen = () => {
             <Image
               source={Images.LINKICON}
               style={{width: 80, height: 80}}
-              resizeMode='contain'
+              resizeMode="contain"
             />
             <Text
               style={{
@@ -203,7 +208,7 @@ const UploadPrescriptionScreen = () => {
             <Image
               source={Images.UPLOADICON}
               style={{width: 80, height: 80}}
-              resizeMode='contain'
+              resizeMode="contain"
             />
             <Text
               style={{
@@ -243,7 +248,9 @@ const UploadPrescriptionScreen = () => {
           ))}
         </View>
 
-        <TouchableOpacity style={styles.continueButton} onPress={()=> handleContiue()}>
+        <TouchableOpacity
+          style={styles.continueButton}
+          onPress={() => handleContiue()}>
           <Text style={{color: '#fff', fontSize: 25}}>Continue</Text>
         </TouchableOpacity>
       </View>

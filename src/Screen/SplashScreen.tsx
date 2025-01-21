@@ -13,19 +13,20 @@ const SplashScreen = () => {
   );
   const navigation = useNavigation<StackNavigationProp<RootParaList>>();
 
-    useEffect(() => {
-      const timeout = setTimeout(() => {
-        isUserLogined ? navigation.replace('App',{screen:'Home'}) : navigation.replace('Auth',{screen:'Login'});
-      }, 3000);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      isUserLogined
+        ? navigation.replace('App', {screen: 'Home'})
+        : navigation.replace('Auth', {screen: 'Login'});
+    }, 3000);
 
-      return () => clearTimeout(timeout);
-
-    }, [isUserLogined]);
+    return () => clearTimeout(timeout);
+  }, [isUserLogined]);
 
   return (
     <View style={styles.container}>
       <Image
-        style={{height: 270, width: 270,}}
+        style={{height: 270, width: 270}}
         resizeMode="center"
         source={Images.SPLASHIMAGE}
       />
@@ -42,12 +43,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    position:'relative'
+    position: 'relative',
   },
   appTitle: {
     color: '#FFFFFF',
     fontSize: 48,
     fontWeight: '500',
-    position:'absolute'
+    position: 'absolute',
   },
 });

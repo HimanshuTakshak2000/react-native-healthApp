@@ -126,7 +126,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingHorizontal: 20,
   },
-  drawerStyle: {height: 25, width: 25, marginRight: 10},
+  drawerStyle: {
+    height: 25,
+    width: 25,
+    marginRight: 10,
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',

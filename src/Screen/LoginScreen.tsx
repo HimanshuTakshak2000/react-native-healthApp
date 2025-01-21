@@ -147,8 +147,30 @@ const LoginScreen = () => {
                   onChangeText={text => handlePasswordChange(text)}
                   secureTextEntry={!isPasswordVisible}
                 />
-                <TouchableOpacity style={{alignSelf:'center'}} onPress={()=> setIsPasswordVisible(!isPasswordVisible)}>
-                {isPasswordVisible ? (<Icon name='eye' size={20} color="#000" style={[styles.icon,{marginHorizontal:5,marginRight:0}]} />) : (<Icon name='eye-off' size={20} color="#000" style={[styles.icon,{marginHorizontal:5,marginRight:0}]} />)}
+                <TouchableOpacity
+                  style={{alignSelf: 'center'}}
+                  onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
+                  {isPasswordVisible ? (
+                    <Icon
+                      name="eye"
+                      size={20}
+                      color="#000"
+                      style={[
+                        styles.icon,
+                        {marginHorizontal: 5, marginRight: 0},
+                      ]}
+                    />
+                  ) : (
+                    <Icon
+                      name="eye-off"
+                      size={20}
+                      color="#000"
+                      style={[
+                        styles.icon,
+                        {marginHorizontal: 5, marginRight: 0},
+                      ]}
+                    />
+                  )}
                 </TouchableOpacity>
               </View>
             </View>
@@ -226,7 +248,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 2,
     backgroundColor: '#fff',
-    paddingVertical:5,
+    paddingVertical: 5,
   },
   inputMainContainer: {
     marginBottom: 45,

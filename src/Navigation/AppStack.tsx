@@ -6,6 +6,7 @@ import CalenderScreen from '../Screen/CalenderScreen';
 import UploadScreen from '../Screen/UploadScreen';
 import {Image, StyleSheet} from 'react-native';
 import {Images} from '../assets/Index';
+import DocumentScreen from '../Screen/DocumentScreen';
 
 const Tab = createBottomTabNavigator<App>();
 
@@ -43,17 +44,11 @@ export default function AppStack() {
             />
           );
         },
-        tabBarStyle: {
-          backgroundColor: '#D9D9D9',
-          borderTopWidth: 1,
-          height: 45,
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-        },
+        tabBarStyle: styles.bottomTabBarStyle,
       })}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Calender" component={CalenderScreen} />
-      <Tab.Screen name="Document" component={CalenderScreen} />
+      <Tab.Screen name="Document" component={DocumentScreen} />
       <Tab.Screen name="Upload" component={UploadScreen} />
     </Tab.Navigator>
   );
@@ -64,4 +59,11 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
   },
+  bottomTabBarStyle:{
+    backgroundColor: '#D9D9D9',
+    borderTopWidth: 1,
+    height: 45,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  }
 });
