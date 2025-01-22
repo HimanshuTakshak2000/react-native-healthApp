@@ -16,6 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import IconLock from 'react-native-vector-icons/Entypo';
 import Loader from '../component/Loader';
+import {passwordRegex, emailRegex} from "../utils/baseUrl";
 
 const LoginScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootParaList>>();
@@ -26,13 +27,12 @@ const LoginScreen = () => {
   const [isLoading, setIsloading] = useState<boolean>(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
   const isValidateEmail = (email: string) => {
     return emailRegex.test(email);
   };
 
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  
   const isValidatePassword = (password: string) => {
     return passwordRegex.test(password);
   };
