@@ -26,7 +26,7 @@ const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <Image
-        style={{height: 270, width: 270}}
+        style={styles.splashImageStyle}
         resizeMode="center"
         source={Images.SPLASHIMAGE}
       />
@@ -50,5 +50,9 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: '500',
     position: 'absolute',
+  },
+  splashImageStyle:{
+    height: 270, 
+    width: 270
   },
 });

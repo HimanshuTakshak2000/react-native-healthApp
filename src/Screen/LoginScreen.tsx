@@ -16,7 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import IconLock from 'react-native-vector-icons/Entypo';
 import Loader from '../component/Loader';
-import {passwordRegex, emailRegex} from "../utils/baseUrl";
+import {passwordRegex, emailRegex} from '../utils/baseUrl';
 
 const LoginScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootParaList>>();
@@ -27,14 +27,8 @@ const LoginScreen = () => {
   const [isLoading, setIsloading] = useState<boolean>(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
-  
   const isValidateEmail = (email: string) => {
     return emailRegex.test(email);
-  };
-
-  
-  const isValidatePassword = (password: string) => {
-    return passwordRegex.test(password);
   };
 
   const handleLoginPress = () => {
@@ -43,7 +37,7 @@ const LoginScreen = () => {
       setIsPasswordError(true);
     } else if (!isValidateEmail(email)) {
       setIsEmailError(true);
-    } else if (!isValidatePassword(password)) {
+    } else if (password.length === 0) {
       setIsPasswordError(true);
     } else {
       setIsEmailError(false);
@@ -84,7 +78,7 @@ const LoginScreen = () => {
 
   const handlePasswordChange = (text: string) => {
     setPassword(text);
-    if (!isValidatePassword(text)) {
+    if (text.length === 0) {
       setIsPasswordError(true);
     } else {
       setIsPasswordError(false);
@@ -174,15 +168,9 @@ const LoginScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-            {isPasswordError &&
-              (password.length == 0 ? (
-                <Text style={styles.errorStyle}>Enter Password</Text>
-              ) : (
-                <Text
-                  style={
-                    styles.errorStyle
-                  }>{`Minimum 8 character, 1 UpperCase, 1 LowerCase, 1 Number, 1 Special Character`}</Text>
-              ))}
+            {isPasswordError && (
+              <Text style={styles.errorStyle}>Enter Password</Text>
+            )}
           </View>
 
           <TouchableOpacity
