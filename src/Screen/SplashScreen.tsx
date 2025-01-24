@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     position: 'absolute',
   },
-  splashImageStyle:{
-    height: 270, 
-    width: 270
+  splashImageStyle: {
+    height: 270,
+    width: 270,
   },
 });

@@ -16,7 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import IconLock from 'react-native-vector-icons/Entypo';
 import Loader from '../component/Loader';
-import {passwordRegex, emailRegex} from '../utils/baseUrl';
+import {emailRegex} from '../utils/baseUrl';
 
 const LoginScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootParaList>>();
