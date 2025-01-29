@@ -140,12 +140,12 @@ const UploadPrescriptionScreen = () => {
         <View style={styles.header}>
           <Image
             source={Images.BACKBUTTONIMAGE}
-            style={{width: 40, height: 40, marginRight: 15}}
+            style={styles.backButtonImageStyle}
             resizeMode="contain"
           />
           <Image
             source={Images.LOCATIONICON}
-            style={{width: 25, height: 25, marginRight: 15}}
+            style={styles.locationImageStyle}
             resizeMode="contain"
           />
           <Text style={styles.location}>Mohali</Text>
@@ -184,39 +184,29 @@ const UploadPrescriptionScreen = () => {
         </Text>
         <View style={styles.uploadContainer}>
           <TouchableOpacity
-            style={{justifyContent: 'center', alignItems: 'center'}}
+            style={styles.uploadTouchAbleContainer}
             onPress={() => setUploadMode('link')}>
             <Image
               source={Images.LINKICON}
-              style={{width: 80, height: 80}}
+              style={styles.uploadImageStyle}
               resizeMode="contain"
             />
             <Text
-              style={{
-                fontSize: 20,
-                color: '#000000',
-                fontWeight: '500',
-                marginTop: 20,
-              }}>
+              style={styles.uploadTextStyle}>
               Upload Link
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={{justifyContent: 'center', alignItems: 'center'}}
+            style={styles.uploadTouchAbleContainer}
             onPress={handleFileUpload}>
             <Image
               source={Images.UPLOADICON}
-              style={{width: 80, height: 80}}
+              style={styles.uploadImageStyle}
               resizeMode="contain"
             />
             <Text
-              style={{
-                fontSize: 20,
-                color: '#000000',
-                fontWeight: '500',
-                marginTop: 20,
-              }}>
+              style={styles.uploadTextStyle}>
               Upload File
             </Text>
           </TouchableOpacity>
@@ -251,7 +241,7 @@ const UploadPrescriptionScreen = () => {
         <TouchableOpacity
           style={styles.continueButton}
           onPress={() => handleContiue()}>
-          <Text style={{color: '#fff', fontSize: 25}}>Continue</Text>
+          <Text style={styles.continueTextStyle}>Continue</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -389,5 +379,33 @@ const styles = StyleSheet.create({
     padding: hp('1.5%'),
     backgroundColor: '#40b592',
     alignItems: 'center',
+  },
+  continueTextStyle:{
+    color: '#fff', 
+    fontSize: 25
+  },
+  uploadTouchAbleContainer:{
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+  uploadImageStyle:{
+    width: 80, 
+    height: 80
+  },
+  uploadTextStyle:{
+    fontSize: 20,
+    color: '#000000',
+    fontWeight: '500',
+    marginTop: 20,
+  },
+  locationImageStyle:{
+    width: 25, 
+    height: 25, 
+    marginRight: 15
+  },
+  backButtonImageStyle:{
+    width: 40, 
+    height: 40, 
+    marginRight: 15
   },
 });
